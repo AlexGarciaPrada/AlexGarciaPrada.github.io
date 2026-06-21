@@ -386,7 +386,7 @@ En definitiva, aunque @Autowired en campos sigue siendo funcional, su uso tiende
   [https://odrotbohm.de/2013/11/why-field-injection-is-evil/](https://odrotbohm.de/2013/11/why-field-injection-is-evil/)
 
 - Spring Framework (código fuente oficial)  
-  [https://github.com/spring-projects/spring-framework/tree/main] (https://github.com/spring-projects/spring-framework/tree/main)
+  [https://github.com/spring-projects/spring-framework/tree/main](https://github.com/spring-projects/spring-framework/tree/main)
 
 - Ejemplo histórico de inyección por XML  
   [https://github.com/lucabixio/dependency-injection-xml](https://github.com/lucabixio/dependency-injection-xml)
