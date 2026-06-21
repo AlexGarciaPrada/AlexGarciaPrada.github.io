@@ -1,8 +1,8 @@
 ---
 layout: post
-title: ¿Por qué la inyección por campos (@Autowired) está dejando de utilizarse en Spring?
-date: 2026-06-21
-last_modified_at: 2026-06-21
+title:  "¿Por qué la inyección por campos (@Autowired) está dejando de utilizarse en Spring?"
+date:   2026-06-21 18:37:58 +0200
+categories: jekyll update
 ---
 
 # ¿Por qué la inyección por campos (@Autowired) está dejando de utilizarse en Spring?
@@ -113,7 +113,7 @@ Como se puede observar tenemos dos "hooks", uno para antes de inicializar el bea
 
 En ninguna. Para llegar a la inyección por campos tenemos que bucear un poco más en distintas intefaces:
 
-![Diagrama Interfaces Autowired](resources\AutowiredIntefacesUML.png){: style="max-width: 100%; height: auto; max-height: 600px; display: block; margin: 0 auto;"}
+![Diagrama Interfaces Autowired](/assets/images/spring-boot/field-injection/AutowiredIntefacesUML.png){: style="max-width: 100%; height: auto; max-height: 600px; display: block; margin: 0 auto;"}
 
 Para la anotación de @Autowired, la clase que nos interesa se puede encontrar en : [AutowiredAnnotationBeanPostProcessor](https://github.com/spring-projects/spring-framework/blob/main/spring-beans/src/main/java/org/springframework/beans/factory/annotation/AutowiredAnnotationBeanPostProcessor.java).
 
@@ -122,17 +122,17 @@ En esta clase es donde verdaderamente ocurre la magia (o, mejor dicho, la reflex
 ```java
 @Override
 public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) {
-	InjectionMetadata metadata = findAutowiringMetadata(beanName, bean.getClass(), pvs);
-	try {
-		metadata.inject(bean, beanName, pvs);
-	}
-	catch (BeanCreationException ex) {
-		throw ex;
-	}
-	catch (Throwable ex) {
-		throw new BeanCreationException(beanName, "Injection of autowired dependencies failed", ex);
-	}
-	return pvs;
+  InjectionMetadata metadata = findAutowiringMetadata(beanName, bean.getClass(), pvs);
+  try {
+    metadata.inject(bean, beanName, pvs);
+  }
+  catch (BeanCreationException ex) {
+    throw ex;
+  }
+  catch (Throwable ex) {
+    throw new BeanCreationException(beanName, "Injection of autowired dependencies failed", ex);
+  }
+  return pvs;
 }
 ```
 
@@ -143,26 +143,26 @@ Utiliza la API de Reflection de Java para romper el encapsulamiento llamando a f
 ```java
 @Override
 protected void inject(Object bean, @Nullable String beanName, @Nullable PropertyValues pvs) throws Throwable {
-	Field field = (Field) this.member;
-	Object value;
-	if (this.cached) {
-		try {
-			value = resolveCachedArgument(beanName, this.cachedFieldValue);
-		}
-		catch (BeansException ex) {
-			// Unexpected target bean mismatch for cached argument -> re-resolve
-			this.cached = false;
-			logger.debug("Failed to resolve cached argument", ex);
-			value = resolveFieldValue(field, bean, beanName);
-		}
-	}
-	else {
-		value = resolveFieldValue(field, bean, beanName);
-	}
-	if (value != null) {
-		ReflectionUtils.makeAccessible(field);
-		field.set(bean, value);
-	}
+  Field field = (Field) this.member;
+  Object value;
+  if (this.cached) {
+    try {
+      value = resolveCachedArgument(beanName, this.cachedFieldValue);
+    }
+    catch (BeansException ex) {
+      // Unexpected target bean mismatch for cached argument -> re-resolve
+      this.cached = false;
+      logger.debug("Failed to resolve cached argument", ex);
+      value = resolveFieldValue(field, bean, beanName);
+    }
+  }
+  else {
+    value = resolveFieldValue(field, bean, beanName);
+  }
+  if (value != null) {
+    ReflectionUtils.makeAccessible(field);
+    field.set(bean, value);
+  }
 }
 ```
 
@@ -173,7 +173,7 @@ Una vez explicado como funciona el @Autowired, veamos por qué Spring desaconsej
 
 En este repositorio he definido una interfaz de Servicio "ServiceI" y dos servicios que lo implementan (ServiceA y ServiceB). El único método que tienen definido es ```java public String showSomething();```. Que simplemente devuelve una frase que identifica cada servicio. Y he hecho dos controladores, uno con inyección por campos y otro por constructor para poder hacer una comparación. La estructura es simplemente:
 
-![Diagrama UML arquitectura repositorio de Ejemplo](resources\RepositoryUML.png)
+![Diagrama UML arquitectura repositorio de Ejemplo](/assets/images/spring-boot/field-injection/RepositoryUML.png)
 
 
 Y el controlador en el que nos centraremos es:
