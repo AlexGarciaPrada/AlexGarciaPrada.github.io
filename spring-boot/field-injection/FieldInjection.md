@@ -120,20 +120,20 @@ Para la anotación de @Autowired, la clase que nos interesa se puede encontrar e
 En esta clase es donde verdaderamente ocurre la magia (o, mejor dicho, la reflexión) en la fase posterior a la instanciación. Se encarga de escanear la clase buscando metadatos, específicamente anotaciones como @Autowired, @Value o @Inject. Todo ello en el método PostProcessProperties():
 
 ```java
-	@Override
-	public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) {
-		InjectionMetadata metadata = findAutowiringMetadata(beanName, bean.getClass(), pvs);
-		try {
-			metadata.inject(bean, beanName, pvs);
-		}
-		catch (BeanCreationException ex) {
-			throw ex;
-		}
-		catch (Throwable ex) {
-			throw new BeanCreationException(beanName, "Injection of autowired dependencies failed", ex);
-		}
-		return pvs;
+@Override
+public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) {
+	InjectionMetadata metadata = findAutowiringMetadata(beanName, bean.getClass(), pvs);
+	try {
+		metadata.inject(bean, beanName, pvs);
 	}
+	catch (BeanCreationException ex) {
+		throw ex;
+	}
+	catch (Throwable ex) {
+		throw new BeanCreationException(beanName, "Injection of autowired dependencies failed", ex);
+	}
+	return pvs;
+}
 ```
 
 Al identificar el campo, busca en el ApplicationContext qué bean encaja con el tipo requerido (en nuestro caso, UserRepository).
@@ -141,29 +141,29 @@ Al identificar el campo, busca en el ApplicationContext qué bean encaja con el 
 Utiliza la API de Reflection de Java para romper el encapsulamiento llamando a field.setAccessible(true) e inyectar la instancia que encontró. Esto lo podemos ver en el código anterior en el metadata.inject(bean, beanName, pvs), que por debajo hace:
 
 ```java
-		@Override
-		protected void inject(Object bean, @Nullable String beanName, @Nullable PropertyValues pvs) throws Throwable {
-			Field field = (Field) this.member;
-			Object value;
-			if (this.cached) {
-				try {
-					value = resolveCachedArgument(beanName, this.cachedFieldValue);
-				}
-				catch (BeansException ex) {
-					// Unexpected target bean mismatch for cached argument -> re-resolve
-					this.cached = false;
-					logger.debug("Failed to resolve cached argument", ex);
-					value = resolveFieldValue(field, bean, beanName);
-				}
-			}
-			else {
-				value = resolveFieldValue(field, bean, beanName);
-			}
-			if (value != null) {
-				ReflectionUtils.makeAccessible(field);
-				field.set(bean, value);
-			}
+@Override
+protected void inject(Object bean, @Nullable String beanName, @Nullable PropertyValues pvs) throws Throwable {
+	Field field = (Field) this.member;
+	Object value;
+	if (this.cached) {
+		try {
+			value = resolveCachedArgument(beanName, this.cachedFieldValue);
 		}
+		catch (BeansException ex) {
+			// Unexpected target bean mismatch for cached argument -> re-resolve
+			this.cached = false;
+			logger.debug("Failed to resolve cached argument", ex);
+			value = resolveFieldValue(field, bean, beanName);
+		}
+	}
+	else {
+		value = resolveFieldValue(field, bean, beanName);
+	}
+	if (value != null) {
+		ReflectionUtils.makeAccessible(field);
+		field.set(bean, value);
+	}
+}
 ```
 
 
