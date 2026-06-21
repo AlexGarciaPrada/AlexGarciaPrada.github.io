@@ -371,22 +371,22 @@ En definitiva, aunque @Autowired en campos sigue siendo funcional, su uso tiende
 ## Referencias
 
 - Baeldung – Field Injection is not recommended  
-  https://www.baeldung.com/java-spring-field-injection-cons  
+  [https://www.baeldung.com/java-spring-field-injection-cons](https://www.baeldung.com/java-spring-field-injection-cons)
 
 - Baeldung – XML-based Dependency Injection in Spring  
-  https://www.baeldung.com/spring-xml-injection  
+  [https://www.baeldung.com/spring-xml-injection](https://www.baeldung.com/spring-xml-injection)  
 
 - Marc Nuri – Inyección de campos desaconsejada  
-  https://blog.marcnuri.com/inyeccion-de-campos-desaconsejada-field-injection-not-recommended-spring-ioc  
+  [https://blog.marcnuri.com/inyeccion-de-campos-desaconsejada-field-injection-not-recommended-spring-ioc](https://blog.marcnuri.com/inyeccion-de-campos-desaconsejada-field-injection-not-recommended-spring-ioc)
 
 - GeeksforGeeks – Why field injection is not recommended in Spring  
-  https://www.geeksforgeeks.org/advance-java/why-is-field-injection-not-recommended-in-spring/  
+  [https://www.geeksforgeeks.org/advance-java/why-is-field-injection-not-recommended-in-spring/](https://www.geeksforgeeks.org/advance-java/why-is-field-injection-not-recommended-in-spring/)  
 
 - Oliver Drotbohm – Why field injection is evil  
-  https://odrotbohm.de/2013/11/why-field-injection-is-evil/  
+  [https://odrotbohm.de/2013/11/why-field-injection-is-evil/](https://odrotbohm.de/2013/11/why-field-injection-is-evil/)
 
 - Spring Framework (código fuente oficial)  
-  https://github.com/spring-projects/spring-framework/tree/main  
+  [https://github.com/spring-projects/spring-framework/tree/main] (https://github.com/spring-projects/spring-framework/tree/main)
 
 - Ejemplo histórico de inyección por XML  
-  https://github.com/lucabixio/dependency-injection-xml
+  [https://github.com/lucabixio/dependency-injection-xml](https://github.com/lucabixio/dependency-injection-xml)
