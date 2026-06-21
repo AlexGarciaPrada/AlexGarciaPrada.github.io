@@ -5,8 +5,6 @@ date:   2026-06-21 18:37:58 +0200
 categories: jekyll update
 ---
 
-# ¿Por qué la inyección por campos (@Autowired) está dejando de utilizarse en Spring?
-
 El uso de la anotación @Autowired es una práctica muy extendida en los repositorios de Spring Boot. Como ingeniero de Software que acaba de comenzar en este framework pensaba que era una buena práctica, pero hace un par de semanas en una conversación con un ingeniero con mucha más experiencia que yo me dijo que no solo no era una buena práctica. El objetivo de esta entrada es analizar cómo funciona la inyección de campos en Spring (actualmente la notación @Autowired) y por qué Spring no recomienda utilizarlo.
 
 ## Historia de la anotación @Autowired

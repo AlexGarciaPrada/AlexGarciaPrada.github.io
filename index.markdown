@@ -4,3 +4,6 @@
 
 layout: home
 ---
+<style>
+.rss-subscribe { display: none !important; }
+</style>
