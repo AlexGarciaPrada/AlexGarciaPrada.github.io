@@ -173,7 +173,7 @@ Una vez explicado como funciona el @Autowired, veamos por qué Spring desaconsej
 
 En este repositorio he definido una interfaz de Servicio "ServiceI" y dos servicios que lo implementan (ServiceA y ServiceB). El único método que tienen definido es ```java public String showSomething();```. Que simplemente devuelve una frase que identifica cada servicio. Y he hecho dos controladores, uno con inyección por campos y otro por constructor para poder hacer una comparación. La estructura es simplemente:
 
-![Diagrama UML arquitectura repositorio de Ejemplo](resources\RepositoryUML.png)
+![Diagrama UML arquitectura repositorio de Ejemplo](resources\RepositoryUML.png){: style="max-height: 600px;"}
 
 
 Y el controlador en el que nos centraremos es:
