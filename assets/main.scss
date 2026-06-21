@@ -1,0 +1,88 @@
+---
+---
+@import "minima";
+
+/* ==================================================
+   Estilos Generales Modo Oscuro
+   ================================================== */
+body.dark-mode {
+  background-color: #181818;
+  color: #e0e0e0;
+
+  a { color: #66b3ff; }
+  a:visited { color: #c299ff; }
+
+  .site-header,
+  .site-footer {
+    border-top-color: #333;
+    border-bottom-color: #333;
+    background-color: #181818;
+  }
+
+  .site-title,
+  .page-link { color: #f0f0f0; }
+
+  h1, h2, h3, h4, h5, h6 { color: #ffffff; }
+
+  .post-meta { color: #aaaaaa; }
+
+  /* Bloques de código (VS Code Dark Modern Theme) */
+  pre, .highlight {
+    background-color: #1e1e1e !important;
+    border: 1px solid #333;
+    color: #d4d4d4;
+    padding: 1rem;
+    border-radius: 6px;
+  }
+
+  code {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+
+  /* Resaltado de sintaxis (Rouge) */
+  .highlight .c { color: #6a9955; }  /* Comentarios */
+  .highlight .k { color: #569cd6; }  /* Keywords */
+  .highlight .kc { color: #569cd6; } /* Keywords constante */
+  .highlight .kt { color: #4ec9b0; } /* Tipos */
+  .highlight .s { color: #ce9178; }  /* Strings */
+  .highlight .n { color: #9cdcfe; }  /* Variables */
+  .highlight .nf { color: #dcdcaa; } /* Funciones */
+  .highlight .nb { color: #4ec9b0; } /* Built-in */
+  .highlight .o { color: #d4d4d4; }  /* Operadores */
+}
+
+/* ==================================================
+   Diseño del botón flotante
+   ================================================== */
+#dark-mode-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #555;
+  }
+}
+
+body.dark-mode #dark-mode-toggle {
+  background-color: #f0f0f0;
+  color: #181818;
+
+  &:hover {
+    background-color: #ccc;
+  }
+}
