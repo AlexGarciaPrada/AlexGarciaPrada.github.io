@@ -1,0 +1,12 @@
+---
+layout: default
+---
+
+<p style="color: #666; font-style: italic; margin-bottom: 20px;">
+  <strong>Publicado el:</strong> {{ page.date | date: "%d/%m/%Y" }}
+  {% if page.last_modified_at and page.last_modified_at != page.date %}
+    <span style="margin-left: 15px;"> <strong>Última edición:</strong> {{ page.last_modified_at | date: "%d/%m/%Y" }}</span>
+  {% endif %}
+</p>
+
+{{ content }}

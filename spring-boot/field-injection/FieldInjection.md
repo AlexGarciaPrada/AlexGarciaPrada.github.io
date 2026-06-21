@@ -1,6 +1,8 @@
 ---
-layout: default
+layout: post
 title: ¿Por qué la inyección por campos (@Autowired) está dejando de utilizarse en Spring?
+date: 2026-06-21
+last_modified_at: 2026-06-21
 ---
 
 # ¿Por qué la inyección por campos (@Autowired) está dejando de utilizarse en Spring?
