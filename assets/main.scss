@@ -29,22 +29,17 @@ body.dark-mode {
   /* Bloques de código (VS Code Dark Modern Theme) */
   pre, .highlight {
     background-color: #1e1e1e !important;
-    border: 1px solid #333;
     color: #d4d4d4;
-    padding: 1rem;
-    border-radius: 6px;
   }
 
   code {
     background-color: #1e1e1e;
     color: #e0e0e0;
-    padding: 2px 4px;
-    border-radius: 4px;
   }
 
   /* Resaltado de sintaxis (Rouge) */
   .highlight .c { color: #6a9955; }  /* Comentarios */
-  .highlight .k { color: #569cd6; }  /* Keywords */
+  .highlight .k { color: #699fcc; }  /* Keywords */
   .highlight .kc { color: #569cd6; } /* Keywords constante */
   .highlight .kt { color: #4ec9b0; } /* Tipos */
   .highlight .s { color: #ce9178; }  /* Strings */
@@ -52,6 +47,7 @@ body.dark-mode {
   .highlight .nf { color: #dcdcaa; } /* Funciones */
   .highlight .nb { color: #4ec9b0; } /* Built-in */
   .highlight .o { color: #d4d4d4; }  /* Operadores */
+  .highlight .nt { color: #cfb0b0; }
 }
 
 /* ==================================================
