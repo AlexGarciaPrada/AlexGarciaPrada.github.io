@@ -297,7 +297,7 @@ public class ConstructorController {
 
 ### Más difícil ignorar el SRP
 
-En primer lugar vemos cómo ahora cada servicio que queremos utilizar se pasa por el constructor y como hace más explícitas las dependencias se facilita detectar clases con demasiadas responsabilidades. Aunque por otro lado, alguien podría argumentar que es más verboso. Para esto podemos utilizar la solución que ya proponía en 2013 Oliver Drotbohm en "Why field injection is evil" que es utilizar Lombok. Concretamente utilizando la anotación ```@RequiredArgsConstructor``` se genera automáticamente el constructor de todos los atributos que son final.
+En primer lugar vemos cómo ahora cada servicio que queremos utilizar se pasa por el constructor y como hace más explícitas las dependencias. Con esto se facilita detectar clases con demasiadas responsabilidades. Aunque por otro lado, alguien podría argumentar que es más verboso. Para esto podemos utilizar la solución que ya proponía en 2013 Oliver Drotbohm en "Why field injection is evil", que es utilizar Lombok. Concretamente utilizando la anotación ```@RequiredArgsConstructor``` se genera automáticamente el constructor de todos los atributos que son final.
 ```java
 @RestController
 @RequestMapping("/api/constructor")
