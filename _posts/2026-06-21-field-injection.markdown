@@ -5,7 +5,7 @@ date:   2026-06-21 18:37:58 +0200
 categories: jekyll update
 ---
 
-El uso de la anotación ```@Autowired``` es una práctica muy extendida en los repositorios de Spring Boot. Como ingeniero de Software que acaba de comenzar en este framework pensaba que era una buena práctica, pero hace un par de semanas en una conversación con un ingeniero con mucha más experiencia que yo me dijo que no solo no era una buena práctica sino que era un antipatrón. 
+El uso de la anotación ```@Autowired``` es una práctica muy extendida en los repositorios de Spring Boot. Como ingeniero de Software que acaba de comenzar en este framework pensaba que era una buena práctica. Sin embargo, hace un par de semanas, en una conversación con un ingeniero con mucha más experiencia que yo, me dijo que no solo no era una buena práctica, sino que era un antipatrón. 
 
 El objetivo de esta entrada es analizar cómo funciona la inyección de campos en Spring (actualmente la anotación ```@Autowired```) y por qué Spring no recomienda utilizarla. Esta entrada está completamente centrada en Spring, pero en esta primera sección trataremos lo que es la inyección de dependencias, usaremos Java como lenguaje vehicular pero es un concepto que no está ligado a ningún lenguaje o framework.
 
